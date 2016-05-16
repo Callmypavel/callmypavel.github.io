@@ -53,7 +53,7 @@
 	];
 	init_number = 5;
 	$scope.high_light_lrc;
-	$scope.lrc_display_number = 10;
+	$scope.lrc_display_number = 15;
 	$scope.songs = $scope.hot_songs;
 	$scope.lrc = $scope.hot_songs[0].lrc;
 	$scope.current_lrc_number=0;
@@ -145,7 +145,7 @@
 		<!-- console.log("当前音乐"+$scope.current_music_entity.name); -->
 		$scope.current_time.innerHTML = "00:00";
 		$scope.end_time.innerHTML = "00:00";
-		$scope.current_music.innerHTML=song.name+"<p >"+song.singer+"</p>";
+		$scope.current_music.innerHTML=song.name+"<p>"+song.singer+"</p>";
 		$scope.music.src=song.url;	
 		$scope.music.load();
 		$scope.music.ontimeupdate = function() {$scope.update_seekbar($scope.music.currentTime)};
@@ -230,14 +230,14 @@
 		}
 		<!-- console.log("检查current_lrc_number"+$scope.current_lrc_number);
 		<!-- console.log("检查row"+row[0]+","+row[1]); -->
-		console.log("检查currentTime"+currentTime);
+		console.log("检查currentTime"+currentTime+","+row[0]);
 		if(currentTime>row[0]){	
 			console.log("更换歌词"+$scope.current_lrc_number);		
-			if($scope.current_lrc_number>=4){
-				start = $scope.current_lrc_number-4;
-				end = $scope.current_lrc_number+$scope.lrc_display_number-4;
+			if($scope.current_lrc_number>=7){
+				start = $scope.current_lrc_number-7;
+				end = $scope.current_lrc_number+$scope.lrc_display_number-7;
 				$scope.current_lrc_array=$scope.lrc_array.slice(start,end);
-				$scope.high_light_lrc = $scope.current_lrc_array[4];
+				$scope.high_light_lrc = $scope.current_lrc_array[7];
 				console.log("搜索区间"+start+","+end);	
 			}else{
 				$scope.high_light_lrc = $scope.current_lrc_array[$scope.current_lrc_number];
@@ -334,11 +334,9 @@
 			if(d != null) { 
 				var dt = String(d).split(':'); 
 				minute = parseInt(dt[0].split('[')[1]);
-				second = Math.round(parseFloat(dt[1].split(']')[0]));
+				second = parseFloat(dt[1].split(']')[0]);
 				fixed = minute*60+second;
 				$scope.lrc_array.push([fixed, t[1]]);
-
-				
 			}
 		}
 		if(typeof($scope.current_lrc_array)=='undefined'){
@@ -361,8 +359,8 @@
 			OnePlayer
 		</span>		
 		<nav class="mdl-navigation 	mdl-layout--large-screen-only">
-			<a class="mdl-navigation__link text" href="" id="newsongs" ng-click="swit_new_songs()">新歌榜</a>
-			<a class="mdl-navigation__link text" href="" id="hotsongs" ng-click="swit_hot_songs()">热歌榜</a>
+			<a class="mdl-navigation__link text_normal" href="" id="newsongs" ng-click="swit_new_songs()">新歌榜</a>
+			<a class="mdl-navigation__link text_normal" href="" id="hotsongs" ng-click="swit_hot_songs()">热歌榜</a>
 		</nav>
 		<!-- Add spacer, to align navigation to the right -->
 		<div class="mdl-layout-spacer"></div>
@@ -390,14 +388,14 @@
 		<!-- Your content goes here -->
 			<div >		
 				<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
-					<div class="mdl-snackbar__text" class="text"></div>
+					<div class="mdl-snackbar__text" ></div>
 				<button class="mdl-snackbar__action" type="button"></button>
 				</div>
 				<div id="album"></div>
 				<div id="current_music_container" >
-					<div id="current_music" class="text">
+					<div id="current_music" >
 					OnePlayer
-					<p class="text">聆听音乐，洞彻真谛</p>
+					<p>聆听音乐，洞彻真谛</p>
 					</div>
 				</div>
 				<div id="controll_bar" >
@@ -439,14 +437,14 @@
 					</form>
 					
 					<ul>
-						<li ng-repeat="song in songs | filter:query " >
+						<li ng-repeat="song in songs | filter:query " style="line-height:3rem;">
 							<a>
 								<img src="stylesheets/resource/sound.png" style="width:1.5rem" ng-show="song==current_music_entity"/>
 								<font size="4" ng-click="click_song(song)" class="text_normal">			
 									{{song.name}}
 								</font>	
 							</a>
-							<p class="text">{{song.singer}}</p>
+							<p style="font-size:1.2rem;">{{song.singer}}</p>
 						</li>
 					</ul>
 				</div>

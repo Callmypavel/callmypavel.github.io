@@ -16,19 +16,40 @@ from{-o-transform:rotate(0deg)}
 to{-o-transform:rotate(360deg)}
 }
 @font-face{
-	font-family:ch;
+	font-family:ch-l;
 	src:url(fonts/SourceHanSansCN-Light.otf);
 }
 @font-face{
-	font-family:ch-normal;
+	font-family:ch-n;
 	src:url(fonts/SourceHanSansCN-Normal.otf);
 }
+@font-face{
+	font-family:ch-el;
+	src:url(fonts/SourceHanSansCN-ExtraLight.otf);
+}
+@font-face{
+	font-family:ch-b;
+	src:url(fonts/SourceHanSansCN-Bold.otf);
+}
+@font-face{
+	font-family:ch-h;
+	src:url(fonts/SourceHanSansCN-Heavy.otf);
+}
+@font-face{
+	font-family:ch-m;
+	src:url(fonts/SourceHanSansCN-Medium.otf);
+}
+@font-face{
+	font-family:ch-r;
+	src:url(fonts/SourceHanSansCN-Regular.otf);
+}
+
 #album {	
   width:20rem;
   height:20rem;
   position:absolute;
-  margin-left:3rem;
-  margin-top:2rem;
+  margin-left:3.5rem;
+  margin-top:4rem;
   background-size:100%;
   background-image: url(resource/album.png);
   background-repeat: no-repeat;
@@ -48,6 +69,7 @@ to{-o-transform:rotate(360deg)}
   width:20rem;
 }
 #current_music {
+  line-height:3rem;
   font-size: 1.5rem;
   text-align:center;
 }
@@ -91,6 +113,7 @@ to{-o-transform:rotate(360deg)}
 }
 .high_light_lrc{
 	color:#03A9F4;
+	font-family:"ch-n",Arial;
 	text-align:center;
 	list-style-type:none;
 	padding:1rem;
@@ -98,17 +121,17 @@ to{-o-transform:rotate(360deg)}
 .text{
 	font-family:"ch",Arial;
 }
-.text_normal{
-	font-family:"ch_normal",Arial;
-
-}
 .p{
 	font-family:"ch",Arial;
-	font-size:3rem;
 }
+.text_normal{
+	font-family:"ch-r",Arial;
+	font-size:1.5rem;
+}
+
 .lrc_row{
-	
-	font-family:"ch",Arial;
+	font-size:1.5rem;
+	font-family:"ch-r",Arial;
 	text-align:center;
 	list-style-type:none;
 	padding:1rem;
@@ -120,6 +143,9 @@ to{-o-transform:rotate(360deg)}
 	background-size:60%;
 	background-repeat:no-repeat;
 	background-position:center;
+}
+.subitem{
+	padding:1rem;
 }
 #previous_button{
 	background-image:url(resource/previous.png);
