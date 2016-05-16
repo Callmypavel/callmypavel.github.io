@@ -354,7 +354,7 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header is-casting-shadow">  	
 		<div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button">	
-		<img src="resource/ic_toc_white_48dp.png" style="width:3rem;height:3.6rem;background-position:cener;"/>
+		<img src="stylesheets/resource/ic_toc_white_48dp.png" style="width:3rem;height:3.6rem;background-position:cener;"/>
 		</div>
 		<div class="mdl-layout__header-row" >
       	<span class="mdl-layout-title" id="title">
@@ -441,7 +441,7 @@
 					<ul>
 						<li ng-repeat="song in songs | filter:query " >
 							<a>
-								<img src="resource/sound.png" style="width:1.5rem" ng-show="song==current_music_entity"/>
+								<img src="stylesheets/resource/sound.png" style="width:1.5rem" ng-show="song==current_music_entity"/>
 								<font size="4" ng-click="click_song(song)" class="text_normal">			
 									{{song.name}}
 								</font>	
